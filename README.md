@@ -51,19 +51,21 @@ npm install
 npm run dev
 ```
 
-### 4. Type-Check, Compile and Minify for Production
+## Other commands
+
+### Type-Check, Compile and Minify for Production
 
 ```sh
 npm run build
 ```
 
-### 5. Run Unit Tests with [Vitest](https://vitest.dev/)
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh
 npm run test:unit
 ```
 
-### 6. Lint with [ESLint](https://eslint.org/)
+### Lint with [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
