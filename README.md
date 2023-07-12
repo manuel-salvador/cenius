@@ -1,7 +1,5 @@
 # Cenius
-## Sistema central para administrar tu e-commerce de manera inteligente
-
-**Descripción**: El proyecto es un CMS (Sistema de Gestión de Contenido) de backoffice diseñado específicamente para plataformas de ecommerce. Proporciona una interfaz intuitiva y funcionalidades poderosas para administrar y personalizar una tienda en línea.
+Sistema central para administrar tu e-commerce de manera inteligente
 
 ## Características
 
@@ -15,18 +13,57 @@
 ## Requisitos del Sistema
 
 - NODE >= 18.0
-- VUE CLI
+- npm
 
-## Instalación
+## Configuracion recomendada del IDE
 
-1. Clona el repositorio: `git clone https://github.com/manuel-salvador/cenius.git`
-2. Navega al directorio del proyecto: `cd cenius`
-3. Crea un archivo `.env` y copia el contenido archivo de configuración de ejemplo: `.env.example`
-4. Configura las variables de entorno en el archivo .env según tu entorno de desarrollo.
-5. Instala las dependencias del proyecto: `pnpm install`
-8. Inicia el servidor local: `pnpm dev`
-9. Accede a la aplicación en tu navegador: `http://localhost:8000`
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (y deshabilita Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Licencia
+## Soporte de tipos para importaciones `.vue` en TS
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo LICENSE para más detalles.
+TypeScript no puede manejar información de tipos para las importaciones `.vue` de forma predeterminada, por lo que reemplazamos la CLI `tsc` con `vue-tsc` para la comprobación de tipos. En los editores, necesitamos el [Plugin de TypeScript Vue (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) para que el servicio de lenguaje TypeScript reconozca los tipos `.vue`.
+
+Si el complemento independiente de TypeScript no es lo suficientemente rápido para ti, Volar también ha implementado un [Modo Take Over](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) que es más eficiente. Puedes habilitarlo siguiendo estos pasos:
+
+1. Desactiva la extensión integrada de TypeScript
+    1) Ejecuta `Extensions: Show Built-in Extensions` en la paleta de comandos de VSCode
+    2) Encuentra `TypeScript and JavaScript Language Features`, haz clic derecho y selecciona `Disable (Workspace)`
+2. Vuelve a cargar la ventana de VSCode ejecutando `Developer: Reload Window` en la paleta de comandos.
+
+
+## Configuracion inicial del proyecto
+
+### 1. Clona el repositorio
+```sh
+git clone https://github.com/manuel-salvador/cenius.git
+```
+
+### 2. Instala las dependencias
+
+```sh
+npm install
+```
+
+### 3. Compilar y hot-reloaded para Desarrollo
+
+```sh
+npm run dev
+```
+
+### 4. Comprobar Tipos, Compilar y Minificar para Producción
+
+```sh
+npm run build
+```
+
+### 5. Ejecutar Pruebas Unitarias con [Vitest](https://vitest.dev/)
+
+```sh
+npm run test:unit
+```
+
+### 6. Lint con [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```
