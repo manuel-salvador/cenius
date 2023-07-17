@@ -48,7 +48,7 @@
     <v-main class="main">
       <div class="main__content">
         <div>
-          <h1>hola mundo</h1>
+          <h1>Hello</h1>
         </div>
       </div>
     </v-main>
