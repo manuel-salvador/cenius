@@ -5,17 +5,14 @@
         <img class="logoUno" src="src/assets/logo/cenius.png" />
         <div class="logoDos">enius</div>
       </v-div>
-
       <div class="welcome">
         <h4 class="mt-5">Welcome, bruno</h4>
         <h2>Good Morning!</h2>
       </div>
-
-      <div class="search">
+      <div class="search__container">
         <input type="text" placeholder="Search" required />
-
         <div class="search__btn">
-          <v-btn class="search__button" prepend-icon="mdi-magnify"></v-btn>
+          <v-btn class="search__icons" prepend-icon="mdi-magnify"></v-btn>
         </div>
       </div>
       <div class="navbar__icono">
@@ -23,7 +20,6 @@
         <v-btn class="navbar__iconoDos" icon="mdi-account-circle"></v-btn>
       </div>
     </v-app-bar>
-
     <v-navigation-drawer class="navigation" expand-on-hover rail permanent>
       <v-list density="compact" class="navigation__list">
         <div class="navigation__itemUno">
@@ -37,10 +33,9 @@
             value="Marketing"
           ></v-list-item>
         </div>
-
         <div class="navigation__itemDos">
           <v-list-item prepend-icon="mdi-alert-box" title="Help" value="Help"></v-list-item>
-          <v-list-item prepend-icon="mdi-logout" title="Log out" value="Log out"></v-list-item>
+          <v-list-item prepend-icon="mdi-logout" title="Log out"></v-list-item>
         </div>
       </v-list>
     </v-navigation-drawer>
@@ -56,91 +51,68 @@
 </template>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  margin-top: 0;
-  font-family: Poppins;
-}
 .layout {
   display: flex;
 }
-
 .layout__header {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 11%;
+  height: 12%;
   padding-bottom: 1rem;
 }
-
 .navigation {
   background-color: #161616;
   display: flex;
-  padding: -10px;
 }
 .navigation__list {
   width: 100%;
   height: 100%;
-  padding: -7px;
   margin-top: -5px;
-  
-  
 }
-
 .navigation__itemUno {
-  color: #f0eff6;
+  color: #ffffff;
   font-size: 24px;
-  
+  margin-top: 10px;
 }
-
 .navigation__itemDos {
   position: relative;
   display: block;
-  color: #f0eff6;
+  color: #ffffff;
   font-size: 24px;
-  top: 17%;
-  
+  margin-top: 2%;
+  top: 24%;
 }
-
 .v-list-item {
-  color: #f0eff6;
+  color: #ffffff;
   padding: 10px;
   left: -7px;
 }
 .v-list-item:hover {
-  background-color: #dedede;
+  background-color: #ffffff;
   color: #111013;
 }
 .logo {
   display: flex;
   padding: 5px;
-  gap: 5px;
-  
 }
-
 .logoUno {
   width: 50px;
-  aspect-ratio: 1/1;
-  
+  min-height: 30px;
+  margin-top: 7px;
+  padding: 2px;
 }
-
 .logoDos {
   font-size: 40px;
   color: #f0eff6;
-  margin-top: 1px;
-  padding: 2px;
-  
+  margin-top: -1px;
+  padding: 1px;
 }
-
-
-
-
 .welcome {
-  font-size: 22px;
+  font-size: 18px;
   color: #f0eff6;
-  padding:10px;
-  margin-top: -14px;
+  padding: 10px;
+  margin-top: -8px;
   opacity: 0;
   animation: slideIn 5s forwards;
 }
@@ -149,32 +121,27 @@
     opacity: 0;
     transform: translateX(100%);
   }
-
   100% {
     opacity: 1;
     transform: translateX(0%);
   }
 }
 .navbar__icono {
-  position: relative;
-  right: -59%;
-  display: flex;
-  padding: 10px;
-  gap: -25px;
+  margin: 15px;
   align-items: center;
   color: #f0eff6;
 }
-
 .navbar__iconoUno {
   padding: 10px;
   margin-top: 1px;
   color: white;
+  left: 770%;
 }
 .navbar__iconoDos {
   padding: 10px;
   color: white;
-  padding: 10px;
   margin-top: 1px;
+  left: 770%;
 }
 .navbar__iconoUno:hover {
   border-radius: 50%;
@@ -186,13 +153,13 @@
   background-color: white;
   color: #000000;
 }
-.search {
+.search__container {
   position: absolute;
   padding: 6px;
-  right:9%;
+  right: 9.1%;
   align-items: center;
 }
-.search input {
+.search__container input {
   width: 0;
   height: 23px;
   margin: 8px 2px;
@@ -220,23 +187,23 @@
   border-radius: 50%;
   cursor: pointer;
 }
-.search__button {
+.search__icons {
   font-size: 20px;
   right: -1px;
   top: 9px;
   color: white;
 }
-.search__button:hover {
+.search__icons:hover {
   color: #000000;
 }
 .search__btn:hover {
   color: black;
   background-color: white;
 }
-.search:hover input {
+.search__container:hover input {
   width: 240px;
 }
-.search input:focus {
+.search__container input:focus {
   width: 240px;
 }
 .main {
@@ -247,9 +214,8 @@
   min-height: calc(100vh - 64px);
   padding: 1rem;
 }
-
 @media screen and (max-width: 690px) {
-  .logo{
+  .logo {
     display: flex;
     padding: 5px;
     margin-top: -7px;
@@ -258,40 +224,41 @@
     width: 15%;
     height: 15%;
   }
-
   .logoDos {
     font-size: 38px;
     width: 20%;
     height: 20%;
+    margin-top: -6px;
   }
-
   .welcome {
     display: none;
   }
-
-  .navbar__icono {
-    right: -36%;
-    padding: 5px;
-    margin-top: -7px;
+  .navbar__iconoUno {
+    padding: 10px;
+    margin-top: -6px;
+    color: white;
+    left: 114%;
   }
-
-  .search {
-    right: 6%;
+  .navbar__iconoDos {
+    padding: 10px;
+    color: white;
+    margin-top: -6px;
+    left: 115%;
+  }
+  .search__container {
+    right: 8%;
     padding: 4px;
     margin-top: -7px;
   }
-
-  .search input {
+  .search__container input {
     position: relative;
     margin: 10px 80px;
   }
-
   .search__btn {
     width: 35%;
     height: 32px;
     right: 222px;
   }
-
   .search__btn {
     width: 50px;
     height: 50px;
@@ -306,30 +273,23 @@
     border-radius: 50%;
     cursor: pointer;
   }
-
-  .search:hover input {
+  .search__container:hover input {
     width: 110px;
   }
-
-  .search input:focus {
+  .search__container input:focus {
     width: 110px;
   }
-  .navigation{
-    margin-top: -8px;
+  .navigation {
+    margin-top: -5px;
     min-height: calc(110vh - 64px);
-    
-  }
-  
   }
   .navigation__itemDos {
     padding: 1px;
-    margin-top: 48px;
-
+    margin-top: -15px;
   }
-  
-
+}
 @media screen and (max-width: 390px) {
-  .layout__header{
+  .layout__header {
     height: 7%;
   }
   .logoUno {
@@ -337,85 +297,72 @@
     height: 15%;
     margin-top: 5px;
   }
-
   .logoDos {
     font-size: 38px;
     width: 20%;
     height: 20%;
-    margin-top: 1px;
+    margin-top: -11px;
   }
-
   .welcome {
     display: none;
   }
-
-  .navbar__icono {
-    right: 1%;
-    gap: 25px;
-  }
-
-  .search {
-    right: 28%;
+  .search__container {
+    right: 30%;
     padding: 4px;
-    margin-top: -9px;
+    margin-top: -7px;
   }
-
-  .search input {
+  .search__container input {
     right: -32%;
     padding: 5px;
     margin-top: 10px;
-   
   }
-
   .search__btn {
     right: -8px;
-    font-size: 15px;
     border-radius: 50%;
     cursor: pointer;
   }
-  .search__button {
-    font-size: 20px;
+  .search__icons {
+    font-size: 25px;
     color: white;
   }
-  .search__button:hover {
+  .search__icons:hover {
     color: #000000;
   }
   .search__btn:hover {
     color: black;
     background-color: white;
   }
-  .search:hover input {
+  .search__container:hover input {
     width: 120px;
   }
-
-  .search input:focus {
+  .search__container input:focus {
     width: 120px;
   }
-.navbar__icono{
-  right: 1%;
-  padding: 1px;
-  margin-top: -9px;
-  gap: 1px;
-}
+  .navbar__icono {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #f0eff6;
+  }
   .navbar__iconoUno {
-    margin-top: 1px;
-    padding: -10px;
+    margin-top: -7px;
+    padding: 1px;
+    left: 10%;
+    font-size: 22px;
     color: white;
   }
   .navbar__iconoDos {
-    margin-top: 1px;
+    margin-top: -7px;
     padding: 1px;
+    font-size: 22px;
+    left: 8%;
     color: white;
   }
-  
   .navigation__itemUno {
     top: 2%;
   }
-
   .navigation__itemDos {
-    position: relative;
-    padding: 1px;
-    top: 3%;
+    top: 45%;
   }
 }
 </style>
