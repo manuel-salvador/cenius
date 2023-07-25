@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
+defineProps({
+  series: Array
+})
+
 interface ApexChart {
   zoomX: (x: number, y: number) => void
 }
@@ -57,32 +61,6 @@ const options = {
     }
   ]
 }
-
-const generateDataForYearAndHalf = () => {
-  const startDate = new Date('2022-01-01').getTime()
-  const endDate = new Date().getTime()
-  const dayMilliseconds = 24 * 60 * 60 * 1000
-  const data = []
-
-  for (let date = startDate; date <= endDate; date += dayMilliseconds) {
-    const value = Math.floor(Math.random() * 11) + 0
-
-    data.push([date, value])
-  }
-
-  return data
-}
-
-const series = [
-  {
-    name: 'Sales',
-    data: generateDataForYearAndHalf()
-  },
-  {
-    name: 'Sales 2',
-    data: generateDataForYearAndHalf()
-  }
-]
 
 let selection = ref('one_month')
 
