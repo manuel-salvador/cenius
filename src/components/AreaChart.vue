@@ -64,7 +64,7 @@ const options = {
 
 let selection = ref('one_month')
 
-function updateData(timeline: string) {
+function updateChartTimeline(timeline: string) {
   selection.value = timeline
 
   if (!chart.value) {
@@ -72,7 +72,7 @@ function updateData(timeline: string) {
   }
 
   const today = new Date().getTime()
-  let startOfYear // Movemos la declaración fuera del bloque 'case'
+  let startOfYear
 
   switch (timeline) {
     case 'one_month':
@@ -85,7 +85,7 @@ function updateData(timeline: string) {
       chart.value.zoomX(today - 365 * 24 * 60 * 60 * 1000, today)
       break
     case 'ytd':
-      startOfYear = new Date(today).getFullYear() // Asignamos el valor aquí
+      startOfYear = new Date(today).getFullYear()
       chart.value.zoomX(new Date(startOfYear, 0, 1).getTime(), today)
       break
     case 'all':
@@ -101,7 +101,7 @@ function updateData(timeline: string) {
     <div class="toolbar">
       <button
         id="one_month"
-        @click="updateData('one_month')"
+        @click="updateChartTimeline('one_month')"
         :class="{ active: selection === 'one_month' }"
       >
         1M
@@ -109,7 +109,7 @@ function updateData(timeline: string) {
 
       <button
         id="six_months"
-        @click="updateData('six_months')"
+        @click="updateChartTimeline('six_months')"
         :class="{ active: selection === 'six_months' }"
       >
         6M
@@ -117,17 +117,17 @@ function updateData(timeline: string) {
 
       <button
         id="one_year"
-        @click="updateData('one_year')"
+        @click="updateChartTimeline('one_year')"
         :class="{ active: selection === 'one_year' }"
       >
         1Y
       </button>
 
-      <button id="ytd" @click="updateData('ytd')" :class="{ active: selection === 'ytd' }">
+      <button id="ytd" @click="updateChartTimeline('ytd')" :class="{ active: selection === 'ytd' }">
         YTD
       </button>
 
-      <button id="all" @click="updateData('all')" :class="{ active: selection === 'all' }">
+      <button id="all" @click="updateChartTimeline('all')" :class="{ active: selection === 'all' }">
         ALL
       </button>
     </div>
