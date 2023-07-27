@@ -84,11 +84,11 @@ function updateChartTimeline(timeline: string) {
     case 'one_year':
       chart.value.zoomX(today - 365 * 24 * 60 * 60 * 1000, today)
       break
-    case 'ytd':
+    case 'year_to_date':
       startOfYear = new Date(today).getFullYear()
       chart.value.zoomX(new Date(startOfYear, 0, 1).getTime(), today)
       break
-    case 'all':
+    case 'all_time':
       chart.value.zoomX(new Date('2022-01-01').getTime(), today)
       break
     default:
@@ -99,37 +99,55 @@ function updateChartTimeline(timeline: string) {
 <template>
   <div id="area-chart">
     <div class="toolbar">
-      <button
+      <v-btn
         id="one_month"
         @click="updateChartTimeline('one_month')"
         :class="{ active: selection === 'one_month' }"
+        variant="text"
       >
         1M
-      </button>
+        <v-tooltip activator="parent" location="top">1 Month</v-tooltip>
+      </v-btn>
 
-      <button
+      <v-btn
         id="six_months"
         @click="updateChartTimeline('six_months')"
         :class="{ active: selection === 'six_months' }"
+        variant="text"
       >
         6M
-      </button>
+        <v-tooltip activator="parent" location="top">6 Months</v-tooltip>
+      </v-btn>
 
-      <button
+      <v-btn
         id="one_year"
         @click="updateChartTimeline('one_year')"
         :class="{ active: selection === 'one_year' }"
+        variant="text"
       >
         1Y
-      </button>
+        <v-tooltip activator="parent" location="top">One Year</v-tooltip>
+      </v-btn>
 
-      <button id="ytd" @click="updateChartTimeline('ytd')" :class="{ active: selection === 'ytd' }">
+      <v-btn
+        id="year_to_date"
+        @click="updateChartTimeline('year_to_date')"
+        :class="{ active: selection === 'year_to_date' }"
+        variant="text"
+      >
         YTD
-      </button>
+        <v-tooltip activator="parent" location="top">Year to date</v-tooltip>
+      </v-btn>
 
-      <button id="all" @click="updateChartTimeline('all')" :class="{ active: selection === 'all' }">
+      <v-btn
+        id="all_time"
+        @click="updateChartTimeline('all_time')"
+        :class="{ active: selection === 'all_time' }"
+        variant="text"
+      >
         ALL
-      </button>
+        <v-tooltip activator="parent" location="top">All time</v-tooltip>
+      </v-btn>
     </div>
     <apexchart type="area" height="350" ref="chart" :options="options" :series="series"></apexchart>
   </div>
@@ -153,5 +171,9 @@ function updateChartTimeline(timeline: string) {
 .toolbar .active {
   color: var(--blue-800);
   border: 2px solid var(--blue-800);
+}
+
+.v-tooltip.v-overlay > .v-overlay__content {
+  background-color: #111013;
 }
 </style>
