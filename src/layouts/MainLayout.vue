@@ -324,6 +324,9 @@ export default {
   .layout__header {
     height: 7%;
   }
+  .v-app-bar-nav-icon {
+    top: -4px;
+  }
   .logoUno {
     width: 50px;
     height: 50px;
