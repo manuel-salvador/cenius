@@ -16,7 +16,7 @@
         <div class="search__container">
           <input type="text" placeholder="Search" required />
           <div class="search__button">
-            <v-btn class="search__icons" prepend-icon="mdi-magnify"></v-btn>
+            <v-btn class="search__icon" prepend-icon="mdi-magnify"></v-btn>
           </div>
         </div>
         <v-icon class="navbar__iconoUno" icon="mdi-bell"></v-icon>
@@ -224,13 +224,13 @@ const toggleDrawer = () => {
   border-radius: 50%;
   cursor: pointer;
 }
-.search__icons {
+.search__icon {
   font-size: 20px;
 
   top: 7px;
   color: #212121;
 }
-.search__icons:hover {
+.search__icon:hover {
   color: #ffffff;
 }
 .search__button:hover {
@@ -351,7 +351,7 @@ const toggleDrawer = () => {
     border-radius: 50%;
     cursor: pointer;
   }
-  .search__icons {
+  .search__icon {
     font-size: 25px;
     color: rgb(0, 0, 0);
   }
@@ -385,7 +385,7 @@ const toggleDrawer = () => {
   }
 
   .navigation__itemDos {
-    top: 45%;
+    top: 380px;
   }
 }
 </style>
