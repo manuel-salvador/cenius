@@ -54,7 +54,7 @@
     <v-main class="main">
       <div class="main__content">
         <div>
-          <h1>Hello</h1>
+          <h1><slot>Hello</slot></h1>
         </div>
       </div>
     </v-main>
