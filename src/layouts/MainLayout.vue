@@ -1,26 +1,37 @@
 <template>
-  <v-layout class="layout">
-    <v-app-bar class="layout__header" color="#000102">
-      <v-div class="logo">
+  <v-layout>
+    <v-app-bar class="layout__header" color="#FCFCFE">
+      <v-app-bar-nav-icon variant="plain" @click="toggleDrawer"></v-app-bar-nav-icon>
+      <div class="logo">
         <img class="logoUno" src="src/assets/logo/cenius.png" />
-        <div class="logoDos">enius</div>
-      </v-div>
+      </div>
+
       <div class="welcome">
         <h4 class="mt-5">Welcome, bruno</h4>
         <h2>Good Morning!</h2>
       </div>
-      <div class="search__container">
-        <input type="text" placeholder="Search" required />
-        <div class="search__btn">
-          <v-btn class="search__icons" prepend-icon="mdi-magnify"></v-btn>
-        </div>
-      </div>
+      <v-spacer></v-spacer>
+
       <div class="navbar__icono">
-        <v-btn class="navbar__iconoUno" icon="mdi-bell"></v-btn>
-        <v-btn class="navbar__iconoDos" icon="mdi-account-circle"></v-btn>
+        <div class="search__container">
+          <input type="text" placeholder="Search" required />
+          <div class="search__btn">
+            <v-btn class="search__icons" prepend-icon="mdi-magnify"></v-btn>
+          </div>
+        </div>
+        <v-icon class="navbar__iconoUno" icon="mdi-bell"></v-icon>
+        <v-icon class="navbar__iconoDos" icon="mdi-account-circle"></v-icon>
       </div>
     </v-app-bar>
-    <v-navigation-drawer class="navigation" expand-on-hover rail permanent>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      class="navigation"
+      prepend-icon="$vuetify"
+      expand-on-hover
+      rail
+      permanent
+    >
       <v-list density="compact" class="navigation__list">
         <div class="navigation__itemUno">
           <v-list-item prepend-icon="mdi-home" title="Dashboard" value="Dashboard"></v-list-item>
@@ -50,10 +61,24 @@
   </v-layout>
 </template>
 
-<style>
-.layout {
-  display: flex;
+<script lang="ts">
+import { ref } from 'vue'
+export default {
+  setup() {
+    const drawer = ref(false)
+    const toggleDrawer = () => {
+      drawer.value = !drawer.value
+    }
+
+    return {
+      drawer,
+      toggleDrawer
+    }
+  }
 }
+</script>
+
+<style>
 .layout__header {
   display: flex;
   align-items: center;
@@ -61,36 +86,52 @@
   height: 12%;
   padding-bottom: 1rem;
 }
+.v-app-bar-nav-icon {
+  display: block;
+  color: #000000;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
 .navigation {
-  background-color: #161616;
+  background-color: #fcfcfe;
+  color: rgb(44, 44, 44);
   display: flex;
 }
 .navigation__list {
   width: 100%;
   height: 100%;
-  margin-top: -5px;
 }
 .navigation__itemUno {
-  color: #ffffff;
+  color: rgb(44, 44, 44);
   font-size: 24px;
-  margin-top: 10px;
+  margin-left: -7px;
 }
 .navigation__itemDos {
   position: relative;
   display: block;
-  color: #ffffff;
+  color: #000000;
   font-size: 24px;
-  margin-top: 2%;
-  top: 24%;
+  margin-left: -7px;
+  top: 137px;
+}
+.v-list-item__prepend > .v-icon {
+  margin-inline-end: 10px;
 }
 .v-list-item {
-  color: #ffffff;
+  color: #000000;
   padding: 10px;
-  left: -7px;
+}
+.mdi:before .mdi-set {
+  display: inline-block;
+  font: normal normal normal 24px/1 'Material Design Icons';
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: inherit;
 }
 .v-list-item:hover {
-  background-color: #ffffff;
-  color: #111013;
+  background-color: #262626;
+  color: #fefefe;
 }
 .logo {
   display: flex;
@@ -102,15 +143,10 @@
   margin-top: 7px;
   padding: 2px;
 }
-.logoDos {
-  font-size: 40px;
-  color: #f0eff6;
-  margin-top: -1px;
-  padding: 1px;
-}
+
 .welcome {
   font-size: 18px;
-  color: #f0eff6;
+  color: #000000;
   padding: 10px;
   margin-top: -8px;
   opacity: 0;
@@ -129,82 +165,91 @@
 .navbar__icono {
   margin: 15px;
   align-items: center;
-  color: #f0eff6;
+  color: #212121;
+  font-size: 25;
 }
 .navbar__iconoUno {
+  width: 50px;
+  height: 50px;
   padding: 10px;
   margin-top: 1px;
-  color: white;
-  left: 770%;
+  color: #212121;
+  margin-right: 10px;
 }
 .navbar__iconoDos {
+  width: 50px;
+  height: 50px;
   padding: 10px;
-  color: white;
+  color: #212121;
   margin-top: 1px;
-  left: 770%;
+  margin-right: 5px;
+}
+.mdi:before,
+.mdi-set {
+  font-size: 35px;
 }
 .navbar__iconoUno:hover {
   border-radius: 50%;
-  background-color: white;
-  color: #000000;
+  background-color: #212121;
+  color: #ffffff;
 }
 .navbar__iconoDos:hover {
   border-radius: 50%;
-  background-color: white;
-  color: #000000;
+  background-color: #212121;
+  color: #ffffff;
 }
 .search__container {
   position: absolute;
-  padding: 6px;
-  right: 9.1%;
+  padding: 7px;
+  right: 11.3%;
   align-items: center;
 }
 .search__container input {
   width: 0;
   height: 23px;
-  margin: 8px 2px;
-  padding: 6px;
-  font-size: 18px;
-  color: #222;
+  margin: 4px 6px;
+  margin-top: 8px;
+  padding: 7px;
+  color: #fffcfc;
   outline: none;
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid #212121;
   border-radius: 50px;
   transition: all 0.7s ease;
-  background: linear-gradient(#f7f7f7, #ffffff);
+  background: linear-gradient(#212121, #212121);
   text-align: left;
 }
 .search__btn {
   width: 50px;
   height: 50px;
-  line-height: 25px;
-  top: 1px;
-  right: -8px;
+  line-height: 20px;
+  top: 2px;
+  right: 1px;
   position: absolute;
-  background: #000000;
+  background: #fefefe;
   text-align: center;
-  color: rgb(0, 0, 0);
+  color: rgb(225, 225, 225);
   font-size: 15px;
   border-radius: 50%;
   cursor: pointer;
 }
 .search__icons {
   font-size: 20px;
-  right: -1px;
-  top: 9px;
-  color: white;
+
+  top: 7px;
+  color: #212121;
 }
 .search__icons:hover {
-  color: #000000;
+  color: #ffffff;
 }
 .search__btn:hover {
-  color: black;
-  background-color: white;
+  color: rgb(255, 255, 255);
+  background-color: #212121;
 }
 .search__container:hover input {
-  width: 240px;
+  width: 220px;
 }
 .search__container input:focus {
-  width: 240px;
+  width: 220px;
 }
 .main {
   padding-top: 64px;
@@ -221,71 +266,58 @@
     margin-top: -7px;
   }
   .logoUno {
-    width: 15%;
-    height: 15%;
-  }
-  .logoDos {
-    font-size: 38px;
-    width: 20%;
-    height: 20%;
-    margin-top: -6px;
+    width: 55px;
+    height: 55px;
   }
   .welcome {
     display: none;
   }
   .navbar__iconoUno {
-    padding: 10px;
-    margin-top: -6px;
-    color: white;
-    left: 114%;
+    margin-top: 5px;
+    color: #212121;
+    margin-left: 1px;
   }
   .navbar__iconoDos {
     padding: 10px;
-    color: white;
-    margin-top: -6px;
-    left: 115%;
+    color: #212121;
+    margin-top: 5px;
+    color: #212121;
+    margin-left: 1px;
   }
   .search__container {
-    right: 8%;
+    right: 14%;
     padding: 4px;
     margin-top: -7px;
   }
   .search__container input {
     position: relative;
-    margin: 10px 80px;
-  }
-  .search__btn {
-    width: 35%;
-    height: 32px;
-    right: 222px;
+    padding: 7px;
+    top: 12px;
+    margin-right: 90px;
   }
   .search__btn {
     width: 50px;
     height: 50px;
     line-height: 5px;
-    top: 1px;
-    right: 60px;
+    top: 12px;
+    right: 85px;
     position: absolute;
-    background: #000000;
+    background: rgb(251, 251, 251);
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: white;
     font-size: 15px;
     border-radius: 50%;
     cursor: pointer;
   }
   .search__container:hover input {
-    width: 110px;
+    width: 140px;
   }
   .search__container input:focus {
-    width: 110px;
+    width: 140px;
   }
   .navigation {
     margin-top: -5px;
     min-height: calc(110vh - 64px);
-  }
-  .navigation__itemDos {
-    padding: 1px;
-    margin-top: -15px;
   }
 }
 @media screen and (max-width: 390px) {
@@ -293,74 +325,70 @@
     height: 7%;
   }
   .logoUno {
-    width: 15%;
-    height: 15%;
+    width: 50px;
+    height: 50px;
     margin-top: 5px;
-  }
-  .logoDos {
-    font-size: 38px;
-    width: 20%;
-    height: 20%;
-    margin-top: -11px;
   }
   .welcome {
     display: none;
   }
   .search__container {
-    right: 30%;
-    padding: 4px;
-    margin-top: -7px;
+    right: 28px;
+    padding: 6px;
+    margin-top: 1px;
   }
   .search__container input {
-    right: -32%;
-    padding: 5px;
-    margin-top: 10px;
+    right: 28%;
+    padding: 8px;
+    top: -5px;
   }
   .search__btn {
-    right: -8px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 5px;
+    margin-top: -15px;
+    right: 125px;
+    position: absolute;
+    background: rgb(251, 251, 251);
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    border-radius: 80%;
     cursor: pointer;
   }
   .search__icons {
     font-size: 25px;
-    color: white;
+    color: rgb(0, 0, 0);
   }
-  .search__icons:hover {
-    color: #000000;
-  }
-  .search__btn:hover {
-    color: black;
-    background-color: white;
-  }
+
   .search__container:hover input {
-    width: 120px;
+    width: 90px;
   }
   .search__container input:focus {
-    width: 120px;
+    width: 90px;
   }
+
   .navbar__icono {
     display: flex;
-    gap: 5px;
+    gap: 1px;
     align-items: center;
-    color: #f0eff6;
+    color: #000000;
   }
   .navbar__iconoUno {
-    margin-top: -7px;
+    margin-top: -2px;
     padding: 1px;
-    left: 10%;
-    font-size: 22px;
-    color: white;
+    margin-left: 1px;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
   }
   .navbar__iconoDos {
-    margin-top: -7px;
+    margin-top: -2px;
     padding: 1px;
     font-size: 22px;
-    left: 8%;
-    color: white;
+    margin-left: 5px;
+    color: rgb(0, 0, 0);
   }
-  .navigation__itemUno {
-    top: 2%;
-  }
+
   .navigation__itemDos {
     top: 45%;
   }
