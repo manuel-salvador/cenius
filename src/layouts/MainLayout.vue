@@ -75,7 +75,7 @@ const toggleDrawer = () => {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 12%;
+  height: 72px;
   padding-bottom: 1rem;
 }
 .v-app-bar-nav-icon {
@@ -314,7 +314,7 @@ const toggleDrawer = () => {
 }
 @media screen and (max-width: 390px) {
   .layout__header {
-    height: 7%;
+    height: 60px;
   }
   .v-app-bar-nav-icon {
     top: -4px;
