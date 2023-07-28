@@ -3,7 +3,7 @@
     <v-app-bar class="layout__header" color="#FCFCFE">
       <v-app-bar-nav-icon variant="plain" @click="toggleDrawer"></v-app-bar-nav-icon>
       <div class="logo">
-        <img class="logoUno" src="src/assets/logo/cenius.png" />
+        <img class="IsoType" :src="Logo" />
       </div>
 
       <div class="welcome">
@@ -15,7 +15,7 @@
       <div class="navbar__icono">
         <div class="search__container">
           <input type="text" placeholder="Search" required />
-          <div class="search__btn">
+          <div class="search__button">
             <v-btn class="search__icons" prepend-icon="mdi-magnify"></v-btn>
           </div>
         </div>
@@ -61,20 +61,12 @@
   </v-layout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { ref } from 'vue'
-export default {
-  setup() {
-    const drawer = ref(false)
-    const toggleDrawer = () => {
-      drawer.value = !drawer.value
-    }
-
-    return {
-      drawer,
-      toggleDrawer
-    }
-  }
+import Logo from '@/assets/logo/cenius.png'
+const drawer = ref(false)
+const toggleDrawer = () => {
+  drawer.value = !drawer.value
 }
 </script>
 
@@ -137,7 +129,7 @@ export default {
   display: flex;
   padding: 5px;
 }
-.logoUno {
+.IsoType {
   width: 50px;
   min-height: 30px;
   margin-top: 7px;
@@ -166,7 +158,7 @@ export default {
   margin: 15px;
   align-items: center;
   color: #212121;
-  font-size: 25;
+  font-size: 15px;
 }
 .navbar__iconoUno {
   width: 50px;
@@ -201,7 +193,7 @@ export default {
 .search__container {
   position: absolute;
   padding: 7px;
-  right: 11.3%;
+  right: 135px;
   align-items: center;
 }
 .search__container input {
@@ -218,7 +210,7 @@ export default {
   background: linear-gradient(#212121, #212121);
   text-align: left;
 }
-.search__btn {
+.search__button {
   width: 50px;
   height: 50px;
   line-height: 20px;
@@ -241,7 +233,7 @@ export default {
 .search__icons:hover {
   color: #ffffff;
 }
-.search__btn:hover {
+.search__button:hover {
   color: rgb(255, 255, 255);
   background-color: #212121;
 }
@@ -265,7 +257,7 @@ export default {
     padding: 5px;
     margin-top: -7px;
   }
-  .logoUno {
+  .IsoType {
     width: 55px;
     height: 55px;
   }
@@ -285,7 +277,7 @@ export default {
     margin-left: 1px;
   }
   .search__container {
-    right: 14%;
+    right: 58px;
     padding: 4px;
     margin-top: -7px;
   }
@@ -295,7 +287,7 @@ export default {
     top: 12px;
     margin-right: 90px;
   }
-  .search__btn {
+  .search__button {
     width: 50px;
     height: 50px;
     line-height: 5px;
@@ -327,7 +319,7 @@ export default {
   .v-app-bar-nav-icon {
     top: -4px;
   }
-  .logoUno {
+  .IsoType {
     width: 50px;
     height: 50px;
     margin-top: 5px;
@@ -341,11 +333,11 @@ export default {
     margin-top: 1px;
   }
   .search__container input {
-    right: 28%;
+    right: 48px;
     padding: 8px;
     top: -5px;
   }
-  .search__btn {
+  .search__button {
     width: 50px;
     height: 50px;
     line-height: 5px;
@@ -356,7 +348,7 @@ export default {
     text-align: center;
     color: white;
     font-size: 15px;
-    border-radius: 80%;
+    border-radius: 50%;
     cursor: pointer;
   }
   .search__icons {
