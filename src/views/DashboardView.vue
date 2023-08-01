@@ -81,7 +81,9 @@ const orders = lastOrders.orders as IOrderItem[]
             <p>Current Month Sales</p>
           </div>
         </div>
-        <AreaChart :series="series"></AreaChart>
+        <div class="charts__dashboard__chart">
+          <AreaChart :series="series"></AreaChart>
+        </div>
       </div>
       <div class="charts__donut">
         <h2>Analytics</h2>
@@ -260,6 +262,10 @@ const orders = lastOrders.orders as IOrderItem[]
 
   .charts > .charts__dashboard {
     grid-template-columns: 1fr;
+  }
+
+  .charts__dashboard__chart {
+    padding: 4px 0px;
   }
 
   .charts__dashboard__text {
