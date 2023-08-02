@@ -176,4 +176,20 @@ function updateChartTimeline(timeline: string) {
 .v-tooltip.v-overlay > .v-overlay__content {
   background-color: #111013;
 }
+
+@media (max-width: 768px) {
+  .toolbar {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .toolbar #year_to_date {
+    display: none;
+  }
+  .toolbar .v-btn--size-default {
+    padding: 0 0.1rem;
+    min-width: 50px;
+  }
+}
 </style>

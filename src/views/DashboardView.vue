@@ -81,7 +81,9 @@ const orders = lastOrders.orders as IOrderItem[]
             <p>Current Month Sales</p>
           </div>
         </div>
-        <AreaChart :series="series"></AreaChart>
+        <div class="charts__dashboard__chart">
+          <AreaChart :series="series"></AreaChart>
+        </div>
       </div>
       <div class="charts__donut">
         <h2>Analytics</h2>
@@ -245,21 +247,29 @@ const orders = lastOrders.orders as IOrderItem[]
   color: red;
 }
 
+@media (max-width: 900px) {
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .cards {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+
   .card {
     flex-direction: column;
     text-align: center;
   }
-  .charts {
-    grid-template-columns: 1fr;
-  }
 
   .charts > .charts__dashboard {
     grid-template-columns: 1fr;
+  }
+
+  .charts__dashboard__chart {
+    padding: 4px 0px;
   }
 
   .charts__dashboard__text {
