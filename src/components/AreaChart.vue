@@ -187,5 +187,9 @@ function updateChartTimeline(timeline: string) {
   .toolbar #year_to_date {
     display: none;
   }
+  .toolbar .v-btn--size-default {
+    padding: 0 0.1rem;
+    min-width: 50px;
+  }
 }
 </style>
