@@ -258,6 +258,7 @@ const orders = lastOrders.orders as IOrderItem[]
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
   }
+
   .card {
     flex-direction: column;
     text-align: center;
