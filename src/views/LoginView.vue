@@ -5,24 +5,24 @@
             <h2>{{ authStore.isEmailValid ? 'Nice to see you!' : 'Welcome to Cenius' }}</h2>
             <p>{{ authStore.isEmailValid ? authStore.emailValue : 'Sing in to get a started' }}</p>
         
-            <v-form v-if="authStore.isEmailValid" @submit.prevent="login">
+            <v-form v-model="validFormPassword"  v-if="authStore.isEmailValid" @submit.prevent="login">
 
                 <div class="error-message" v-if="authStore.errorMessagePassword && !authStore.isLoggedIn">
                     <p>Password and/or email incorrect</p>
                 </div>
 
                 <v-text-field label="Password" type="password" v-model="password" required :rules="passwordRules"></v-text-field>
-                <v-btn color="primary" type="submit" :disabled="!valid">Let's start</v-btn>
+                <v-btn color="primary" type="submit" :disabled="!validFormPassword">Let's start</v-btn>
             </v-form>
     
-            <v-form v-model="valid" v-else @submit.prevent="validEmail">
+            <v-form v-model="validFormMail" v-else @submit.prevent="validEmail">
     
-                <div class="error-message" v-if="valid && authStore.errorMessageEmail">
+                <div class="error-message" v-if="validFormMail && authStore.errorMessageEmail">
                     <p>Email is not register</p>
                 </div>
     
                 <v-text-field label="Email address" v-model="email" required :rules="emailRules"></v-text-field>
-                <v-btn color="primary" type="submit" :disabled="!valid">Continue</v-btn>
+                <v-btn color="primary" type="submit" :disabled="!validFormMail">Continue</v-btn>
             </v-form>
     </section>
 </template>
@@ -32,7 +32,8 @@
     import { AuthStore } from '@/stores/auth';
     import { type Router, useRouter } from 'vue-router';
 
-    const valid = ref(false);
+    const validFormMail = ref(false);
+    const validFormPassword = ref(false);
     const email = ref('');
     const password = ref('');
     const authStore = AuthStore();
