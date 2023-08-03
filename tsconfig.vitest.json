@@ -5,9 +5,5 @@
     "composite": true,
     "lib": [],
     "types": ["node", "jsdom"]
-  },
-  "include": [
-    "src", 
-    "src/assets/data/users.json"
-  ]
+  }
 }
