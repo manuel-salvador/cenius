@@ -1,0 +1,183 @@
+{
+  "headers": [
+    { "title": "Image", "key": "mainImage" },
+    {
+      "title": "Id",
+      "key": "id",
+      "disabled": false
+    },
+    { "title": "Name", "key": "name" },
+    { "title": "Price", "key": "price" },
+    { "title": "Category", "key": "category" },
+    { "title": "Stock", "key": "stock" },
+    { "title": "Status", "key": "disabled" },
+    { "title": "Actions", "key": "actions" }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Producto 1",
+      "price": 19.99,
+      "category": "Electrónicos",
+      "stock": 50,
+      "subcategories": ["Electrónicos", "Accesorios"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 1.",
+      "disabled": false
+    },
+    {
+      "id": 2,
+      "name": "Producto 2",
+      "price": 34.95,
+      "category": "Ropa",
+      "stock": 25,
+      "subcategories": ["Ropa", "Hombres"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 2.",
+      "disabled": true
+    },
+    {
+      "id": 3,
+      "name": "Producto 3",
+      "price": 9.99,
+      "category": "Hogar",
+      "stock": 100,
+      "subcategories": ["Hogar", "Cocina"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 3.",
+      "disabled": false
+    },
+    {
+      "id": 4,
+      "name": "Producto 4",
+      "price": 49.99,
+      "category": "Electrónicos",
+      "stock": 10,
+      "subcategories": ["Electrónicos", "Teléfonos"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 4.",
+      "disabled": false
+    },
+    {
+      "id": 5,
+      "name": "Producto 5",
+      "price": 29.99,
+      "category": "Ropa",
+      "stock": 75,
+      "subcategories": ["Ropa", "Mujeres"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 5.",
+      "disabled": false
+    },
+    {
+      "id": 6,
+      "name": "Producto 6",
+      "price": 15.0,
+      "category": "Hogar",
+      "stock": 30,
+      "subcategories": ["Hogar", "Decoración"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 6.",
+      "disabled": false
+    },
+    {
+      "id": 7,
+      "name": "Producto 7",
+      "price": 79.99,
+      "category": "Electrónicos",
+      "stock": 5,
+      "subcategories": ["Electrónicos", "Tablets"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 7.",
+      "disabled": false
+    },
+    {
+      "id": 8,
+      "name": "Producto 8",
+      "price": 39.95,
+      "category": "Ropa",
+      "stock": 20,
+      "subcategories": ["Ropa", "Niños"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 8.",
+      "disabled": false
+    },
+    {
+      "id": 9,
+      "name": "Producto 9",
+      "price": 12.49,
+      "category": "Hogar",
+      "stock": 60,
+      "subcategories": ["Hogar", "Baño"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 9.",
+      "disabled": false
+    },
+    {
+      "id": 10,
+      "name": "Producto 10",
+      "price": 89.99,
+      "category": "Electrónicos",
+      "stock": 15,
+      "subcategories": ["Electrónicos", "Cámaras"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 10.",
+      "disabled": false
+    },
+    {
+      "id": 11,
+      "name": "Producto 11",
+      "price": 25.99,
+      "category": "Ropa",
+      "stock": 50,
+      "subcategories": ["Ropa", "Accesorios"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 11.",
+      "disabled": false
+    },
+    {
+      "id": 12,
+      "name": "Producto 12",
+      "price": 74.95,
+      "category": "Electrónicos",
+      "stock": 10,
+      "subcategories": ["Electrónicos", "Auriculares"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 11.",
+      "disabled": false
+    },
+    {
+      "id": 13,
+      "name": "Producto 13",
+      "price": 39.99,
+      "category": "Ropa",
+      "stock": 30,
+      "subcategories": ["Ropa", "Hombres"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 12.",
+      "disabled": false
+    },
+    {
+      "id": 14,
+      "name": "Producto 14",
+      "price": 49.95,
+      "category": "Hogar",
+      "stock": 8,
+      "subcategories": ["Hogar", "Electrodomésticos"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 13.",
+      "disabled": false
+    },
+    {
+      "id": 15,
+      "name": "Producto 15",
+      "price": 19.99,
+      "category": "Electrónicos",
+      "stock": 20,
+      "subcategories": ["Electrónicos", "Accesorios"],
+      "mainImage": "https://images.fravega.com/f300/8428bdcd9d82f9f3b7e4b0b2edc02d1b.jpg",
+      "description": "Descripción del Producto 14.",
+      "disabled": false
+    }
+  ]
+}
