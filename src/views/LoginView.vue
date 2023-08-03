@@ -30,11 +30,14 @@
 <script setup lang="ts">
     import { ref } from 'vue';
     import { AuthStore } from '@/stores/auth';
+    import { type Router, useRouter } from 'vue-router';
 
     const valid = ref(false);
     const email = ref('');
     const password = ref('');
     const authStore = AuthStore();
+
+    const router: Router = useRouter();
 
     const emailRules = [
         (value: string) => {
@@ -58,6 +61,8 @@
 
     const login = () => {
         authStore.login(authStore.emailValue, password.value); 
+        
+        router.push('/dashboard');
     };
 
 
