@@ -63,7 +63,9 @@
     const login = () => {
         authStore.login(authStore.emailValue, password.value); 
         
-        router.push('/dashboard');
+        if (authStore.isLoggedIn === true){
+            router.push('/dashboard');
+        }
     };
 
 

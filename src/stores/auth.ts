@@ -38,6 +38,7 @@ export const AuthStore = defineStore ('auth', {
             if (user) {
                 this.isLoggedIn = true
                 alert('You login in Cenius')
+
             } else {
                 this.errorMessagePassword = true
             }
