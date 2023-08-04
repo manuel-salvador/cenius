@@ -7,7 +7,7 @@
         
             <v-form v-model="validFormPassword"  v-if="authStore.isEmailValid" @submit.prevent="login">
 
-                <div class="error-message" v-if="authStore.errorMessagePassword && !authStore.isLoggedIn">
+                <div class="error-alert" v-if="authStore.errorAlertPassword && !authStore.isLoggedIn">
                     <p>Password and/or email incorrect</p>
                 </div>
 
@@ -17,7 +17,7 @@
     
             <v-form v-model="validFormMail" v-else @submit.prevent="validEmail">
     
-                <div class="error-message" v-if="validFormMail && authStore.errorMessageEmail">
+                <div class="error-alert" v-if="validFormMail && authStore.errorAlertEmail">
                     <p>Email is not register</p>
                 </div>
     
@@ -92,7 +92,7 @@
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
     }
-    .error-message{
+    .error-alert{
         height: 50px;
         background-color: #FDE2DD;
         color: #C5280C;

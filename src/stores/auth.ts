@@ -6,8 +6,8 @@ export const AuthStore = defineStore ('auth', {
     state: () => ({
         isEmailValid: false,
         isLoggedIn: false,
-        errorMessageEmail: false,
-        errorMessagePassword: false,
+        errorAlertEmail: false,
+        errorAlertPassword: false,
 
         emailValue: ""
         
@@ -25,7 +25,7 @@ export const AuthStore = defineStore ('auth', {
                 this.isEmailValid = true
 
             } else {
-                this.errorMessageEmail = true
+                this.errorAlertEmail = true
             }
         },
 
@@ -40,7 +40,7 @@ export const AuthStore = defineStore ('auth', {
                 alert('You login in Cenius')
 
             } else {
-                this.errorMessagePassword = true
+                this.errorAlertPassword = true
             }
         }
     }
