@@ -1,17 +1,16 @@
 {
   "headers": [
-    { "title": "Image", "key": "mainImage" },
+    { "title": "Image", "key": "mainImage", "sortable": false },
     {
       "title": "Id",
-      "key": "id",
-      "disabled": false
+      "key": "id"
     },
     { "title": "Name", "key": "name" },
     { "title": "Price", "key": "price" },
     { "title": "Category", "key": "category" },
     { "title": "Stock", "key": "stock" },
     { "title": "Status", "key": "disabled" },
-    { "title": "Actions", "key": "actions" }
+    { "title": "Actions", "key": "actions", "sortable": false }
   ],
   "products": [
     {

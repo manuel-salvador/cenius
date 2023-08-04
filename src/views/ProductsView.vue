@@ -1,28 +1,16 @@
 <script setup lang="ts">
-import { VDataTable } from 'vuetify/labs/VDataTable'
 import { ref, watch } from 'vue'
+import { VDataTable } from 'vuetify/labs/VDataTable'
 
+import type { IProduct } from '@/types'
 import TempLayout from '@/components/TempLayout.vue'
 import { headers, products as ProductsMock } from '@/mocks/products.json'
-import type { IProduct } from '@/types'
 
 const products = ref<IProduct[]>([])
 const dialog = ref(false)
 const dialogDisable = ref(false)
 const dialogActivate = ref(false)
 const editedIndex = ref(-1)
-const editedItem = ref({
-  id: -1,
-  name: '',
-  price: 0,
-  category: '',
-  stock: 0,
-  subcategories: [''],
-  mainImage: '',
-  description: '',
-  disabled: false
-})
-
 const defaultItem = {
   id: -1,
   name: '',
@@ -34,6 +22,7 @@ const defaultItem = {
   description: '',
   disabled: false
 }
+const editedItem = ref(defaultItem)
 
 const formTitle = ref(editedIndex.value === -1 ? 'New Item' : 'Edit Item')
 
@@ -68,11 +57,11 @@ function showDialog(item: IProduct | null = null) {
   } else {
     editedItem.value = { ...defaultItem }
   }
-  dialog.value = true
 }
 
 function editItem(item: IProduct) {
   showDialog(item)
+  dialog.value = true
 }
 
 function disableItem(item: IProduct) {
@@ -147,9 +136,30 @@ async function onSubmit() {
 
 function onChangeSubcategories(e: Event) {
   const target = e.target as HTMLInputElement
-  const modifiedValue = target.value.split(',')
+  const modifiedValue = target.value.split(',').map((subcategory) => subcategory.trim())
   editedItem.value.subcategories = modifiedValue
 }
+
+const isRequired = (value: string) => {
+  if (value) return true
+
+  return 'Field is required.'
+}
+
+const formRules = {
+  name: [isRequired],
+  price: [isRequired],
+  stock: [isRequired],
+  category: [isRequired],
+  subcategories: [isRequired],
+  description: [
+    isRequired,
+    (value: string) => (value && value.length <= 200) || 'Max. 200 characters'
+  ],
+  mainImage: [isRequired]
+}
+
+const isFormValid = ref(false)
 </script>
 
 <template>
@@ -189,18 +199,24 @@ function onChangeSubcategories(e: Event) {
                 <span class="text-h5">{{ formTitle }}</span>
               </v-card-title>
 
-              <v-form @submit.prevent="onSubmit">
+              <v-form @submit.prevent="onSubmit" v-model="isFormValid">
                 <v-card-text>
                   <v-container>
                     <v-row>
                       <v-col cols="12" sm="6" md="8">
-                        <v-text-field v-model="editedItem.name" label="Product name"></v-text-field>
+                        <v-text-field
+                          v-model="editedItem.name"
+                          label="Product name"
+                          :rules="formRules.name"
+                        ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="3" md="2">
                         <v-text-field
                           v-model="editedItem.price"
                           label="Price"
                           prefix="$"
+                          type="number"
+                          :rules="formRules.price"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="3" md="2">
@@ -208,23 +224,33 @@ function onChangeSubcategories(e: Event) {
                           v-model="editedItem.stock"
                           label="Stock"
                           suffix="u."
+                          type="number"
+                          :rules="formRules.stock"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="5">
-                        <v-text-field v-model="editedItem.category" label="Category"></v-text-field>
+                        <v-text-field
+                          v-model="editedItem.category"
+                          label="Category"
+                          :rules="formRules.category"
+                        ></v-text-field>
                       </v-col>
                       <v-col cols="12" sm="6" md="7">
                         <v-text-field
-                          hide-details="auto"
                           :model-value="editedItem.subcategories"
                           @input="onChangeSubcategories"
                           label="Subcategories"
+                          hint="Separate by commas e.g. Clothes, Man, Sport"
+                          persistent-hint
+                          :rules="formRules.subcategories"
                         ></v-text-field>
                       </v-col>
                       <v-col cols="12">
                         <v-textarea
                           v-model="editedItem.description"
                           label="Description"
+                          :counter="200"
+                          :rules="formRules.description"
                         ></v-textarea>
                       </v-col>
 
@@ -256,6 +282,7 @@ function onChangeSubcategories(e: Event) {
                     variant="text"
                     type="submit"
                     :loading="loadingSubmit"
+                    :disabled="!isFormValid"
                   >
                     Save
                   </v-btn>
