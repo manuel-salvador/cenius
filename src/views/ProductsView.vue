@@ -292,8 +292,8 @@ const isFormValid = ref(false)
           </v-dialog>
           <v-dialog v-model="dialogDisable" max-width="500px">
             <v-card>
-              <v-card-title class="text-h5 text-center"
-                >Are you sure you want to disable this item?</v-card-title
+              <span class="text-h5 text-center mt-3"
+                >Are you sure you want to disable this item?</span
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
@@ -305,8 +305,8 @@ const isFormValid = ref(false)
           </v-dialog>
           <v-dialog v-model="dialogActivate" max-width="500px">
             <v-card>
-              <v-card-title class="text-h5 text-center"
-                >Are you sure you want to activate this item?</v-card-title
+              <span class="text-h5 text-center mt-3"
+                >Are you sure you want to activate this item?</span
               >
               <v-card-actions>
                 <v-spacer></v-spacer>
