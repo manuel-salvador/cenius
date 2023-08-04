@@ -177,7 +177,7 @@ const isFormValid = ref(false)
       @update:options="loadItems"
     >
       <template v-slot:top>
-        <v-toolbar class="bg-white pl-5 pt-2">
+        <v-toolbar class="toolbar">
           <v-text-field
             v-model="search"
             append-inner-icon="mdi-magnify"
@@ -190,13 +190,11 @@ const isFormValid = ref(false)
           <v-spacer></v-spacer>
           <v-dialog v-model="dialog" max-width="1000px">
             <template v-slot:activator="{ props }">
-              <v-btn color="primary" class="mb-2" v-bind="props" prepend-icon="mdi-plus">
-                New Item
-              </v-btn>
+              <v-btn color="primary" v-bind="props" prepend-icon="mdi-plus"> New Item </v-btn>
             </template>
             <v-card>
               <v-card-title>
-                <span class="text-h5">{{ formTitle }}</span>
+                <span class="form__title">{{ formTitle }}</span>
               </v-card-title>
 
               <v-form @submit.prevent="onSubmit" v-model="isFormValid">
@@ -292,9 +290,7 @@ const isFormValid = ref(false)
           </v-dialog>
           <v-dialog v-model="dialogDisable" max-width="500px">
             <v-card>
-              <span class="text-h5 text-center mt-3"
-                >Are you sure you want to disable this item?</span
-              >
+              <span class="modal__confirm__text">Are you sure you want to disable this item?</span>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue-darken-1" variant="text" @click="closeDisable">Cancel</v-btn>
@@ -305,9 +301,7 @@ const isFormValid = ref(false)
           </v-dialog>
           <v-dialog v-model="dialogActivate" max-width="500px">
             <v-card>
-              <span class="text-h5 text-center mt-3"
-                >Are you sure you want to activate this item?</span
-              >
+              <span class="modal__confirm__text">Are you sure you want to activate this item?</span>
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue-darken-1" variant="text" @click="closeActivate">Cancel</v-btn>
@@ -334,7 +328,7 @@ const isFormValid = ref(false)
       </template>
 
       <template v-slot:[`item.actions`]="{ item }">
-        <v-btn @click="editItem(item.raw)" icon="" flat class="me-2">
+        <v-btn @click="editItem(item.raw)" icon="" flat class="button__action--edit">
           <v-icon>mdi-pencil</v-icon>
           <v-tooltip activator="parent" location="bottom">Edit</v-tooltip></v-btn
         >
@@ -358,6 +352,17 @@ const isFormValid = ref(false)
   margin-bottom: 1.5rem;
 }
 
+.toolbar {
+  background-color: white;
+  padding-left: 20px;
+  padding-top: 8px;
+}
+
+.form__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
 .table__cell-name {
   white-space: nowrap;
   overflow: hidden;
@@ -373,6 +378,17 @@ const isFormValid = ref(false)
 
 .modal__product-image .v-img {
   border: 1px solid rgb(165, 165, 165);
+}
+
+.modal__confirm__text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.button__action--edit {
+  margin: 0px 4px;
 }
 
 @media (max-width: 768px) {
