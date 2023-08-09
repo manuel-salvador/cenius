@@ -3,12 +3,12 @@
     <v-app-bar class="layout__header" color="#FCFCFE">
       <v-app-bar-nav-icon variant="plain" @click="toggleDrawer"></v-app-bar-nav-icon>
       <div class="logo">
-        <img class="IsoType" :src="Logo" />
+        <img class="isotype" :src="Logo" />
       </div>
 
       <div class="welcome">
-        <h4 class="mt-5">Welcome, bruno</h4>
-        <h2>Good Morning!</h2>
+        <p class="mt-5">Welcome, bruno</p>
+        <p class="welcome__greetings">Good morning, check the news</p>
       </div>
       <v-spacer></v-spacer>
 
@@ -31,21 +31,46 @@
       expand-on-hover
       rail
       permanent
+      :class="{ dark: darkMode }"
     >
       <v-list density="compact" class="navigation__list">
-        <div class="navigation__itemUno">
-          <v-list-item prepend-icon="mdi-home" title="Dashboard" value="Dashboard"></v-list-item>
-          <v-list-item prepend-icon="mdi-shopping" title="Orders" value="Orders"></v-list-item>
-          <v-list-item prepend-icon="mdi-truck" title="Products" value="Products"></v-list-item>
-          <v-list-item prepend-icon="mdi-account-circle" title="Users" value="Users"></v-list-item>
+        <div class="navigation__itemUno" :class="{ 'dark--text': darkMode }">
           <v-list-item
-            prepend-icon="mdi-store-marker"
+            prepend-icon="mdi-view-dashboard"
+            title="Dashboard"
+            value="Dashboard"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-shopping-outline"
+            title="Orders"
+            value="Orders"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-tag-outline"
+            title="Products"
+            value="Products"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-account-group-outline"
+            title="Users"
+            value="Users"
+          ></v-list-item>
+          <v-list-item
+            prepend-icon="mdi-storefront-outline"
             title="Marketing"
             value="Marketing"
           ></v-list-item>
         </div>
-        <div class="navigation__itemDos">
-          <v-list-item prepend-icon="mdi-alert-box" title="Help" value="Help"></v-list-item>
+
+        <div class="navigation__itemDos" :class="{ 'dark--text': darkMode }">
+          <v-list-item prepend-icon="mdi-cog-outline" title="Setting" value="Setting"></v-list-item>
+          <v-list-item prepend-icon="mdi-brightness-6" title="Dark Mode" @click="toggleDarkMode">
+          </v-list-item>
+          <v-list-item
+            prepend-icon="mdi-help-circle-outline"
+            title="Help"
+            value="Help"
+          ></v-list-item>
           <v-list-item prepend-icon="mdi-logout" title="Log out"></v-list-item>
         </div>
       </v-list>
@@ -54,7 +79,7 @@
     <v-main class="main">
       <div class="main__content">
         <div>
-          <h1><slot>Hello</slot></h1>
+          <slot></slot>
         </div>
       </div>
     </v-main>
@@ -64,11 +89,40 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import Logo from '@/assets/logo/cenius.png'
-const drawer = ref(false)
+const drawer = ref(true)
 const toggleDrawer = () => {
   drawer.value = !drawer.value
 }
+const darkMode = ref(false)
+const toggleDarkMode = () => {
+  darkMode.value = !darkMode.value
+}
 </script>
+
+<style>
+.v-navigation-drawer.dark {
+  background-color: #1c1c1c;
+  color: yellow;
+}
+.navigation__itemUno.dark--text {
+  color: white;
+  margin: 10 0px;
+}
+.navigation__itemDos.dark title {
+  color: white;
+}
+.navigation__itemUno.dark--text .v-icon {
+  color: yellow;
+}
+.navigation__itemDos.dark--text {
+  color: white;
+  margin: 10 0px;
+}
+
+.navigation__itemDos.dark--text .v-icon {
+  color: yellow;
+}
+</style>
 
 <style>
 .layout__header {
@@ -78,11 +132,12 @@ const toggleDrawer = () => {
   height: 72px;
   padding-bottom: 1rem;
 }
+
 .v-app-bar-nav-icon {
-  display: block;
   color: #000000;
   font-size: 20px;
   margin-top: 5px;
+  display: none;
 }
 
 .navigation {
@@ -96,24 +151,23 @@ const toggleDrawer = () => {
 }
 .navigation__itemUno {
   color: rgb(44, 44, 44);
-  font-size: 24px;
-  margin-left: -7px;
+  font-size: 20px;
+  margin-left: -4px;
+  cursor: pointer;
 }
 .navigation__itemDos {
-  position: relative;
-  display: block;
-  color: #000000;
-  font-size: 24px;
-  margin-left: -7px;
-  top: 137px;
+  color: rgb(44, 44, 44);
+  font-size: 20px;
+  margin-left: -4px;
+  margin-top: 52px;
+  min-height: 50px;
+  cursor: pointer;
 }
 .v-list-item__prepend > .v-icon {
-  margin-inline-end: 10px;
+  margin-inline-end: 18px;
+  min-height: 45px;
 }
-.v-list-item {
-  color: #000000;
-  padding: 10px;
-}
+
 .mdi:before .mdi-set {
   display: inline-block;
   font: normal normal normal 24px/1 'Material Design Icons';
@@ -122,14 +176,15 @@ const toggleDrawer = () => {
   line-height: inherit;
 }
 .v-list-item:hover {
-  background-color: #262626;
+  background-color: #2d6c9f;
   color: #fefefe;
 }
 .logo {
   display: flex;
   padding: 5px;
+  margin-left: 20px;
 }
-.IsoType {
+.isotype {
   width: 50px;
   min-height: 30px;
   margin-top: 7px;
@@ -137,12 +192,16 @@ const toggleDrawer = () => {
 }
 
 .welcome {
-  font-size: 18px;
+  font-size: 20px;
   color: #000000;
-  padding: 10px;
-  margin-top: -8px;
+  padding: 8px;
+  margin-left: 15px;
+  margin-top: -10px;
   opacity: 0;
   animation: slideIn 5s forwards;
+}
+.welcome__greetings {
+  font-size: 15px;
 }
 @keyframes slideIn {
   0% {
@@ -157,7 +216,7 @@ const toggleDrawer = () => {
 .navbar__icono {
   margin: 15px;
   align-items: center;
-  color: #212121;
+  color: rgb(44, 44, 44);
   font-size: 15px;
 }
 .navbar__iconoUno {
@@ -165,29 +224,29 @@ const toggleDrawer = () => {
   height: 50px;
   padding: 10px;
   margin-top: 1px;
-  color: #212121;
+  color: rgb(44, 44, 44);
   margin-right: 10px;
 }
 .navbar__iconoDos {
   width: 50px;
   height: 50px;
   padding: 10px;
-  color: #212121;
+  color: rgb(44, 44, 44);
   margin-top: 1px;
   margin-right: 5px;
 }
 .mdi:before,
 .mdi-set {
-  font-size: 35px;
+  font-size: 29x;
 }
 .navbar__iconoUno:hover {
   border-radius: 50%;
-  background-color: #212121;
+  background-color: #2d6c9f;
   color: #ffffff;
 }
 .navbar__iconoDos:hover {
   border-radius: 50%;
-  background-color: #212121;
+  background-color: #2d6c9f;
   color: #ffffff;
 }
 .search__container {
@@ -226,7 +285,6 @@ const toggleDrawer = () => {
 }
 .search__icon {
   font-size: 20px;
-
   top: 7px;
   color: #212121;
 }
@@ -235,7 +293,7 @@ const toggleDrawer = () => {
 }
 .search__button:hover {
   color: rgb(255, 255, 255);
-  background-color: #212121;
+  background-color: #2d6c9f;
 }
 .search__container:hover input {
   width: 220px;
@@ -263,6 +321,9 @@ const toggleDrawer = () => {
   }
   .welcome {
     display: none;
+  }
+  .v-app-bar-nav-icon {
+    display: flex;
   }
   .navbar__iconoUno {
     margin-top: 5px;
@@ -318,8 +379,9 @@ const toggleDrawer = () => {
   }
   .v-app-bar-nav-icon {
     top: -4px;
+    display: flex;
   }
-  .IsoType {
+  .isotype {
     width: 50px;
     height: 50px;
     margin-top: 5px;
@@ -385,7 +447,7 @@ const toggleDrawer = () => {
   }
 
   .navigation__itemDos {
-    top: 380px;
+    margin-top: 278px;
   }
 }
 </style>
