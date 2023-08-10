@@ -12,15 +12,15 @@
       </div>
       <v-spacer></v-spacer>
 
-      <div class="navbar__icono">
+      <div class="navbar__icon">
         <div class="search__container">
           <input type="text" placeholder="Search" required />
           <div class="search__button">
             <v-btn class="search__icon" prepend-icon="mdi-magnify"></v-btn>
           </div>
         </div>
-        <v-icon class="navbar__iconoUno" icon="mdi-bell"></v-icon>
-        <v-icon class="navbar__iconoDos" icon="mdi-account-circle"></v-icon>
+        <v-icon class="navbar__iconOne" icon="mdi-bell"></v-icon>
+        <v-icon class="navbar__iconTwo" icon="mdi-account-circle"></v-icon>
       </div>
     </v-app-bar>
 
@@ -34,7 +34,7 @@
       :class="{ dark: darkMode }"
     >
       <v-list density="compact" class="navigation__list">
-        <div class="navigation__itemUno" :class="{ 'dark--text': darkMode }">
+        <div class="navigation__itemOne" :class="{ 'dark--text': darkMode }">
           <v-list-item
             prepend-icon="mdi-view-dashboard"
             title="Dashboard"
@@ -62,7 +62,7 @@
           ></v-list-item>
         </div>
 
-        <div class="navigation__itemDos" :class="{ 'dark--text': darkMode }">
+        <div class="navigation__itemTwo" :class="{ 'dark--text': darkMode }">
           <v-list-item prepend-icon="mdi-cog-outline" title="Setting" value="Setting"></v-list-item>
           <v-list-item prepend-icon="mdi-brightness-6" title="Dark Mode" @click="toggleDarkMode">
           </v-list-item>
@@ -99,32 +99,7 @@ const toggleDarkMode = () => {
 }
 </script>
 
-<style scoped>
-.v-navigation-drawer.dark {
-  background-color: #1c1c1c;
-  color: yellow;
-}
-.navigation__itemUno.dark--text {
-  color: white;
-  margin: 10 0px;
-}
-.navigation__itemDos.dark title {
-  color: white;
-}
-.navigation__itemUno.dark--text .v-icon {
-  color: yellow;
-}
-.navigation__itemDos.dark--text {
-  color: white;
-  margin: 10 0px;
-}
-
-.navigation__itemDos.dark--text .v-icon {
-  color: yellow;
-}
-</style>
-
-<style scoped>
+<style>
 .layout__header {
   display: flex;
   align-items: center;
@@ -149,13 +124,13 @@ const toggleDarkMode = () => {
   width: 100%;
   height: 100%;
 }
-.navigation__itemUno {
+.navigation__itemOne {
   color: rgb(44, 44, 44);
   font-size: 20px;
   margin-left: -4px;
   cursor: pointer;
 }
-.navigation__itemDos {
+.navigation__itemTwo {
   color: rgb(44, 44, 44);
   font-size: 20px;
   margin-left: -4px;
@@ -213,13 +188,13 @@ const toggleDarkMode = () => {
     transform: translateX(0%);
   }
 }
-.navbar__icono {
+.navbar__icon {
   margin: 15px;
   align-items: center;
   color: rgb(44, 44, 44);
   font-size: 15px;
 }
-.navbar__iconoUno {
+.navbar__iconOne {
   width: 50px;
   height: 50px;
   padding: 10px;
@@ -227,7 +202,7 @@ const toggleDarkMode = () => {
   color: rgb(44, 44, 44);
   margin-right: 10px;
 }
-.navbar__iconoDos {
+.navbar__iconTwo {
   width: 50px;
   height: 50px;
   padding: 10px;
@@ -239,12 +214,12 @@ const toggleDarkMode = () => {
 .mdi-set {
   font-size: 29x;
 }
-.navbar__iconoUno:hover {
+.navbar__iconOne:hover {
   border-radius: 50%;
   background-color: #2d6c9f;
   color: #ffffff;
 }
-.navbar__iconoDos:hover {
+.navbar__iconTwo:hover {
   border-radius: 50%;
   background-color: #2d6c9f;
   color: #ffffff;
@@ -309,6 +284,29 @@ const toggleDarkMode = () => {
   min-height: calc(100vh - 64px);
   padding: 1rem;
 }
+.v-navigation-drawer.dark {
+  background-color: #1c1c1c;
+  color: yellow;
+}
+.navigation__itemOne.dark--text {
+  color: white;
+  margin: 10 0px;
+}
+.navigation__itemTwo.dark title {
+  color: white;
+}
+.navigation__itemOne.dark--text .v-icon {
+  color: yellow;
+}
+.navigation__itemTwo.dark--text {
+  color: white;
+  margin: 10 0px;
+}
+
+.navigation__itemTwo.dark--text .v-icon {
+  color: yellow;
+}
+
 @media screen and (max-width: 690px) {
   .logo {
     display: flex;
@@ -325,12 +323,12 @@ const toggleDarkMode = () => {
   .v-app-bar-nav-icon {
     display: flex;
   }
-  .navbar__iconoUno {
+  .navbar__iconOne {
     margin-top: 5px;
     color: #212121;
     margin-left: 1px;
   }
-  .navbar__iconoDos {
+  .navbar__iconTwo {
     padding: 10px;
     color: #212121;
     margin-top: 5px;
@@ -425,20 +423,20 @@ const toggleDarkMode = () => {
     width: 90px;
   }
 
-  .navbar__icono {
+  .navbar__icon {
     display: flex;
     gap: 1px;
     align-items: center;
     color: #000000;
   }
-  .navbar__iconoUno {
+  .navbar__iconOne {
     margin-top: -2px;
     padding: 1px;
     margin-left: 1px;
     font-size: 25px;
     color: rgb(0, 0, 0);
   }
-  .navbar__iconoDos {
+  .navbar__iconTwo {
     margin-top: -2px;
     padding: 1px;
     font-size: 22px;
@@ -446,8 +444,8 @@ const toggleDarkMode = () => {
     color: rgb(0, 0, 0);
   }
 
-  .navigation__itemDos {
-    margin-top: 278px;
+  .navigation__itemTwo {
+    margin-top: 450px;
   }
 }
 </style>
