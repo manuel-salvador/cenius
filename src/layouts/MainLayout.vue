@@ -99,7 +99,7 @@ const toggleDarkMode = () => {
 }
 </script>
 
-<style>
+<style scoped>
 .v-navigation-drawer.dark {
   background-color: #1c1c1c;
   color: yellow;
@@ -124,7 +124,7 @@ const toggleDarkMode = () => {
 }
 </style>
 
-<style>
+<style scoped>
 .layout__header {
   display: flex;
   align-items: center;
