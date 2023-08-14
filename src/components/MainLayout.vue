@@ -445,7 +445,7 @@ const toggleDarkMode = () => {
   }
 
   .navigation__itemTwo {
-    margin-top: 450px;
+    margin-top: 290px;
   }
 }
 </style>
