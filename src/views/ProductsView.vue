@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 import { VDataTable } from 'vuetify/labs/VDataTable'
 
 import type { IProduct } from '@/types'
-import TempLayout from '@/components/TempLayout.vue'
+import MainLayout from '@/components/MainLayout.vue'
 import { headers, products as ProductsMock } from '@/mocks/products.json'
 
 const products = ref<IProduct[]>([])
@@ -163,7 +163,7 @@ const isFormValid = ref(false)
 </script>
 
 <template>
-  <TempLayout>
+  <MainLayout>
     <h3 class="page-title">Products</h3>
     <v-data-table
       :custom-filter="customFilter"
@@ -342,7 +342,7 @@ const isFormValid = ref(false)
         >
       </template>
     </v-data-table>
-  </TempLayout>
+  </MainLayout>
 </template>
 
 <style scoped>
