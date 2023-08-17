@@ -39,6 +39,7 @@
             prepend-icon="mdi-view-dashboard"
             title="Dashboard"
             value="Dashboard"
+            to="/dashboard"
           ></v-list-item>
           <v-list-item
             prepend-icon="mdi-shopping-outline"
@@ -49,11 +50,13 @@
             prepend-icon="mdi-tag-outline"
             title="Products"
             value="Products"
+            to="/products"
           ></v-list-item>
           <v-list-item
             prepend-icon="mdi-account-group-outline"
             title="Users"
             value="Users"
+            to="/Users"
           ></v-list-item>
           <v-list-item
             prepend-icon="mdi-storefront-outline"
@@ -141,6 +144,7 @@ const toggleDarkMode = () => {
 .v-list-item__prepend > .v-icon {
   margin-inline-end: 18px;
   min-height: 45px;
+  text-decoration: none;
 }
 
 .mdi:before .mdi-set {
@@ -153,6 +157,7 @@ const toggleDarkMode = () => {
 .v-list-item:hover {
   background-color: #2d6c9f;
   color: #fefefe;
+  text-decoration: none;
 }
 .logo {
   display: flex;
