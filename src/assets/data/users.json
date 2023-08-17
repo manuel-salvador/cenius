@@ -1,0 +1,17 @@
+[
+    {
+      "name": "QA / QC",
+      "email": "qaqc@cenius.com",
+      "password": "passwordqa"
+    },
+    {
+      "name": "Devs",
+      "email": "devs@cenius.com",
+      "password": "passworddevs"
+    },
+    {
+      "name": "Manolo Peña",
+      "email": "manolopeña@cenius.com",
+      "password": "manolo123"
+    }
+  ]
