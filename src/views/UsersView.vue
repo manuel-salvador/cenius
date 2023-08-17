@@ -22,12 +22,6 @@
           <table class="table table-striped table-hover">
             <thead>
               <tr>
-                <th>
-                  <span class="custom-checkbox">
-                    <input type="checkbox" id="selectAll" />
-                    <label for="selectAll"></label>
-                  </span>
-                </th>
                 <th>Name</th>
                 <th>Last Name</th>
                 <th>Rol</th>
@@ -37,12 +31,6 @@
             </thead>
             <tbody>
               <tr>
-                <td>
-                  <span class="custom-checkbox">
-                    <input type="checkbox" id="checkbox1" name="options[]" value="1" />
-                    <label for="checkbox1"></label>
-                  </span>
-                </td>
                 <td>
                   <button
                     class="btn btn-link"
@@ -82,12 +70,6 @@
               </tr>
               <tr>
                 <td>
-                  <span class="custom-checkbox">
-                    <input type="checkbox" id="checkbox2" name="options[]" value="1" />
-                    <label for="checkbox2"></label>
-                  </span>
-                </td>
-                <td>
                   <button
                     class="btn btn-link"
                     type="button"
@@ -125,12 +107,6 @@
                 </td>
               </tr>
               <tr>
-                <td>
-                  <span class="custom-checkbox">
-                    <input type="checkbox" id="checkbox1" name="options[]" value="1" />
-                    <label for="checkbox3"></label>
-                  </span>
-                </td>
                 <td>
                   <button
                     class="btn btn-link"
@@ -170,12 +146,6 @@
               </tr>
               <tr>
                 <td>
-                  <span class="custom-checkbox">
-                    <input type="checkbox" id="checkbox1" name="options[]" value="1" />
-                    <label for="checkbox4"></label>
-                  </span>
-                </td>
-                <td>
                   <button
                     class="btn btn-link"
                     type="button"
@@ -214,12 +184,6 @@
               </tr>
 
               <tr>
-                <td>
-                  <span class="custom-checkbox">
-                    <input type="checkbox" id="checkbox1" name="options[]" value="1" />
-                    <label for="checkbox5"></label>
-                  </span>
-                </td>
                 <td>
                   <button
                     class="btn btn-link"
@@ -429,7 +393,7 @@ body {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
 .table__drop-down div {
-  margin: 10px 70px;
+  margin: 10px 10px;
 }
 .table__drop-down div p {
   color: #000;
