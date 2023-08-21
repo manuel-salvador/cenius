@@ -19,8 +19,11 @@
             <v-btn class="search__icon" prepend-icon="mdi-magnify"></v-btn>
           </div>
         </div>
-        <v-icon class="navbar__iconOne" icon="mdi-bell"></v-icon>
-        <v-icon class="navbar__iconTwo" icon="mdi-account-circle"></v-icon>
+        <v-icon class="navbar__icons navbar_icon--bell" icon="mdi-bell"></v-icon>
+        <v-icon
+          class="navbar__icons navbar_icon--account--circle"
+          icon="mdi-account-circle"
+        ></v-icon>
       </div>
     </v-app-bar>
 
@@ -39,6 +42,7 @@
             prepend-icon="mdi-view-dashboard"
             title="Dashboard"
             value="Dashboard"
+            to="/dashboard"
           ></v-list-item>
           <v-list-item
             prepend-icon="mdi-shopping-outline"
@@ -49,11 +53,13 @@
             prepend-icon="mdi-tag-outline"
             title="Products"
             value="Products"
+            to="/products"
           ></v-list-item>
           <v-list-item
             prepend-icon="mdi-account-group-outline"
             title="Users"
             value="Users"
+            to="/Users"
           ></v-list-item>
           <v-list-item
             prepend-icon="mdi-storefront-outline"
@@ -141,6 +147,7 @@ const toggleDarkMode = () => {
 .v-list-item__prepend > .v-icon {
   margin-inline-end: 18px;
   min-height: 45px;
+  text-decoration: none;
 }
 
 .mdi:before .mdi-set {
@@ -153,6 +160,7 @@ const toggleDarkMode = () => {
 .v-list-item:hover {
   background-color: #2d6c9f;
   color: #fefefe;
+  text-decoration: none;
 }
 .logo {
   display: flex;
@@ -194,32 +202,29 @@ const toggleDarkMode = () => {
   color: rgb(44, 44, 44);
   font-size: 15px;
 }
-.navbar__iconOne {
+.navbar__icons {
   width: 50px;
   height: 50px;
   padding: 10px;
   margin-top: 1px;
   color: rgb(44, 44, 44);
+}
+.navbar__icons navbar_icon--bell {
   margin-right: 10px;
 }
-.navbar__iconTwo {
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  color: rgb(44, 44, 44);
-  margin-top: 1px;
+.navbar__icons navbar_icon--account--circle {
   margin-right: 5px;
 }
 .mdi:before,
 .mdi-set {
   font-size: 29x;
 }
-.navbar__iconOne:hover {
+.navbar__icons navbar_icon--bell:hover {
   border-radius: 50%;
   background-color: #2d6c9f;
   color: #ffffff;
 }
-.navbar__iconTwo:hover {
+.navbar__icons navbar_icon--account--circle:hover {
   border-radius: 50%;
   background-color: #2d6c9f;
   color: #ffffff;
@@ -323,14 +328,19 @@ const toggleDarkMode = () => {
   .v-app-bar-nav-icon {
     display: flex;
   }
-  .navbar__iconOne {
+  .navbar__icons {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin-top: 1px;
+    color: rgb(44, 44, 44);
+  }
+  .navbar__icons navbar_icon--bell {
     margin-top: 5px;
     color: #212121;
     margin-left: 1px;
   }
-  .navbar__iconTwo {
-    padding: 10px;
-    color: #212121;
+  .navbar__icons navbar_icon--account--circle {
     margin-top: 5px;
     color: #212121;
     margin-left: 1px;
@@ -429,14 +439,22 @@ const toggleDarkMode = () => {
     align-items: center;
     color: #000000;
   }
-  .navbar__iconOne {
+
+  .navbar__icons {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin-top: 1px;
+    color: rgb(44, 44, 44);
+  }
+  .navbar__icons navbar_icon--bell {
     margin-top: -2px;
     padding: 1px;
     margin-left: 1px;
     font-size: 25px;
     color: rgb(0, 0, 0);
   }
-  .navbar__iconTwo {
+  .navbar__icons navbar_icon--account--circleo {
     margin-top: -2px;
     padding: 1px;
     font-size: 22px;
