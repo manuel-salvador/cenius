@@ -19,11 +19,8 @@
             <v-btn class="search__icon" prepend-icon="mdi-magnify"></v-btn>
           </div>
         </div>
-        <v-icon class="navbar__icons navbar_icon--bell" icon="mdi-bell"></v-icon>
-        <v-icon
-          class="navbar__icons navbar_icon--account--circle"
-          icon="mdi-account-circle"
-        ></v-icon>
+        <v-icon class="navbar_icon--bell" icon="mdi-bell"></v-icon>
+        <v-icon class="navbar_icon--account--circle" icon="mdi-account-circle"></v-icon>
       </div>
     </v-app-bar>
 
@@ -197,33 +194,37 @@ const toggleDarkMode = () => {
   }
 }
 .navbar__icons {
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  margin-top: 1px;
-  color: rgb(44, 44, 44);
   margin: 15px;
   align-items: center;
   color: rgb(44, 44, 44);
   font-size: 15px;
 }
-
-.navbar__icons navbar_icon--bell {
+.navbar_icon--bell {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  margin-top: 2px;
+  color: rgb(44, 44, 44);
   margin-right: 10px;
 }
-.navbar__icons navbar_icon--account--circle {
+.navbar_icon--account--circle {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  color: rgb(44, 44, 44);
+  margin-top: 2px;
   margin-right: 5px;
 }
 .mdi:before,
 .mdi-set {
   font-size: 29x;
 }
-.navbar__icons navbar_icon--bell:hover {
+.navbar_icon--bell:hover {
   border-radius: 50%;
   background-color: #2d6c9f;
   color: #ffffff;
 }
-.navbar__icons navbar_icon--account--circle:hover {
+.navbar_icon--account--circle:hover {
   border-radius: 50%;
   background-color: #2d6c9f;
   color: #ffffff;
