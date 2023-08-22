@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import TempLayout from '@/components/TempLayout.vue'
+import MainLayout from '@/components/MainLayout.vue'
 import AreaChart from '@/components/AreaChart.vue'
 import DonutChart from '@/components/DonutChart.vue'
 import lastOrders from '@/mocks/lastOrdersMock'
 import { generateSalesDataForYearAndHalf } from '@/utils/generateData'
-
 import { VDataTable } from 'vuetify/labs/VDataTable'
 
 const series = [
@@ -32,7 +31,7 @@ const orders = lastOrders.orders as IOrderItem[]
 </script>
 
 <template>
-  <TempLayout>
+  <MainLayout>
     <h1 class="page-title">Dashboard</h1>
     <div class="cards">
       <div class="card card--blue">
@@ -117,7 +116,7 @@ const orders = lastOrders.orders as IOrderItem[]
         </template>
       </v-data-table>
     </section>
-  </TempLayout>
+  </MainLayout>
 </template>
 
 <style scoped>
