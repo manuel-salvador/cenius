@@ -12,7 +12,7 @@
       </div>
       <v-spacer></v-spacer>
 
-      <div class="navbar__icon">
+      <div class="navbar__icons">
         <div class="search__container">
           <input type="text" placeholder="Search" required />
           <div class="search__button">
@@ -196,19 +196,18 @@ const toggleDarkMode = () => {
     transform: translateX(0%);
   }
 }
-.navbar__icon {
-  margin: 15px;
-  align-items: center;
-  color: rgb(44, 44, 44);
-  font-size: 15px;
-}
 .navbar__icons {
   width: 50px;
   height: 50px;
   padding: 10px;
   margin-top: 1px;
   color: rgb(44, 44, 44);
+  margin: 15px;
+  align-items: center;
+  color: rgb(44, 44, 44);
+  font-size: 15px;
 }
+
 .navbar__icons navbar_icon--bell {
   margin-right: 10px;
 }
@@ -311,14 +310,94 @@ const toggleDarkMode = () => {
 .navigation__itemTwo.dark--text .v-icon {
   color: yellow;
 }
+@media screen and (max-width: 390px) {
+  .layout__header {
+    height: 60px;
+  }
+  .v-app-bar-nav-icon {
+    top: -4px;
+    display: flex;
+  }
+  .isotype {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+  }
+  .welcome {
+    display: none;
+  }
+  .search__container {
+    right: 28px;
+    padding: 6px;
+    margin-top: 1px;
+  }
+  .search__container input {
+    right: 48px;
+    padding: 8px;
+    top: -5px;
+  }
+  .search__button {
+    width: 50px;
+    height: 50px;
+    line-height: 5px;
+    margin-top: -15px;
+    right: 125px;
+    position: absolute;
+    background: rgb(251, 251, 251);
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  .search__icon {
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+  }
 
+  .search__container:hover input {
+    width: 90px;
+  }
+  .search__container input:focus {
+    width: 90px;
+  }
+
+  .navbar__icons {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    margin-top: 1px;
+    display: flex;
+    gap: 1px;
+    align-items: center;
+    color: rgb(44, 44, 44);
+  }
+  .navbar__icons navbar_icon--bell {
+    margin-top: -2px;
+    padding: 1px;
+    margin-left: 1px;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+  }
+  .navbar__icons navbar_icon--account--circleo {
+    margin-top: -2px;
+    padding: 1px;
+    font-size: 22px;
+    margin-left: 5px;
+    color: rgb(0, 0, 0);
+  }
+
+  .navigation__itemTwo {
+    margin-top: 290px;
+  }
+}
 @media screen and (max-width: 690px) {
   .logo {
     display: flex;
     padding: 5px;
     margin-top: -7px;
   }
-  .IsoType {
+  .isoType {
     width: 55px;
     height: 55px;
   }
@@ -379,91 +458,6 @@ const toggleDarkMode = () => {
   .navigation {
     margin-top: -5px;
     min-height: calc(110vh - 64px);
-  }
-}
-@media screen and (max-width: 390px) {
-  .layout__header {
-    height: 60px;
-  }
-  .v-app-bar-nav-icon {
-    top: -4px;
-    display: flex;
-  }
-  .isotype {
-    width: 50px;
-    height: 50px;
-    margin-top: 5px;
-  }
-  .welcome {
-    display: none;
-  }
-  .search__container {
-    right: 28px;
-    padding: 6px;
-    margin-top: 1px;
-  }
-  .search__container input {
-    right: 48px;
-    padding: 8px;
-    top: -5px;
-  }
-  .search__button {
-    width: 50px;
-    height: 50px;
-    line-height: 5px;
-    margin-top: -15px;
-    right: 125px;
-    position: absolute;
-    background: rgb(251, 251, 251);
-    text-align: center;
-    color: white;
-    font-size: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  .search__icon {
-    font-size: 25px;
-    color: rgb(0, 0, 0);
-  }
-
-  .search__container:hover input {
-    width: 90px;
-  }
-  .search__container input:focus {
-    width: 90px;
-  }
-
-  .navbar__icon {
-    display: flex;
-    gap: 1px;
-    align-items: center;
-    color: #000000;
-  }
-
-  .navbar__icons {
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    margin-top: 1px;
-    color: rgb(44, 44, 44);
-  }
-  .navbar__icons navbar_icon--bell {
-    margin-top: -2px;
-    padding: 1px;
-    margin-left: 1px;
-    font-size: 25px;
-    color: rgb(0, 0, 0);
-  }
-  .navbar__icons navbar_icon--account--circleo {
-    margin-top: -2px;
-    padding: 1px;
-    font-size: 22px;
-    margin-left: 5px;
-    color: rgb(0, 0, 0);
-  }
-
-  .navigation__itemTwo {
-    margin-top: 290px;
   }
 }
 </style>
