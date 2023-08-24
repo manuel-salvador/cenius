@@ -240,13 +240,13 @@ const toggleDarkMode = () => {
   height: 23px;
   margin: 4px 6px;
   margin-top: 8px;
-  padding: 7px;
-  color: #fffcfc;
+  padding: 10px;
+  color: #212121;
   outline: none;
   border: 1px solid #212121;
   border-radius: 50px;
   transition: all 0.7s ease;
-  background: linear-gradient(#212121, #212121);
+  background: linear-gradient(#e2e2e2);
   text-align: left;
 }
 .search__button {
